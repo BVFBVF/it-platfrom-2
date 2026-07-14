@@ -1,0 +1,33 @@
+# Задание 3
+
+Стек: Node.js, TypeScript, Express.js, MySQL, Knex, JWT, Zod
+
+## Фича 1: Уведомления
+
+Модель Notification:
+- id, user_id, type, title, text, is_read, created_at
+
+Типы: review_ready, deadline_approaching, 
+employee_blocked, ready_for_outstaff
+
+Эндпоинты:
+- GET /notifications — список уведомлений текущего юзера
+- PATCH /notifications/:id/read — отметить прочитанным
+- PATCH /notifications/read-all — отметить все прочитанными
+- POST /notifications — создать (только admin/mentor)
+
+## Фича 2: Комментарии к задачам
+
+Модель Comment:
+- id, task_id, author_id, text, created_at
+
+Эндпоинты:
+- GET /tasks/:id/comments — список комментов к задаче
+- POST /tasks/:id/comments — добавить коммент
+- DELETE /comments/:id — удалить (только свой или admin)
+
+## Требования:
+- Валидация через Zod везде
+- Права через существующий middleware
+- README обновить с новыми эндпоинтами
+- .env.example обновить если нужно
